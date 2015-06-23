@@ -1,0 +1,103 @@
+Data Strutures:
+  - Stack
+      first in first out
+      methods:
+        - pop()
+        - append(item)
+        - peek()
+        
+  - Queue
+      first in last out
+      methods:
+        - enqueue(item)
+        - dequeue()
+        
+  - Binary Tree
+      composed by nodes > class BinaryTree: , class Node:
+      nodes.attributs:
+        parent, left, right, key, data
+      balanced = maxLevel - minLevel <= 1
+      complete = all node are filled with children except leafs
+      > Binary Search Tree
+        left < right
+      Speed: search O(log(n))
+             build  O(n)
+             sort   /
+      
+  - Binary Heap
+      list represented as a complete balanced binary tree
+      heap = [0] + alist
+      min or max
+      parentPosition = (leftChildPosition or rightChildPosition) // 2
+      methods:
+        add(item): > append() > pushUp()
+        build(alist): start at i = len(alist) // 2 and pushDown until i = 0
+        pushDown(position): > for each position look for the min child (to respect the order propriety)
+                            > if alist[child] < alist[position]: switch
+      Speed: search O(nlog(n))
+             build  O(n)
+             sort   /
+  - Hash Table
+      2 lists attributes in class HashTable: 
+      def __init__(self):
+        self.size = d
+        self.key = self.data = [0] * self.size
+      data and key are in same position in both lists
+      methods:
+        __getitem__(): > hash key > if key[keyPos] == key OK else: rehash(keyPos)
+        __setitem__(): > hash key > if key[keyPos] != None SET else: rehash(keyPos)
+        hash(key): key % self.size
+        rehash(hasedKey): key+1 % size
+      Speed: search O(1)
+             build  O(1)
+             sort   /
+               
+  - Linked List
+    class Node:
+      def __init__(self, data):
+        self.data = data
+        self.next = None
+    class LinkedList:
+      def __init__(self):
+        self.head = None
+    head is the starting node
+    Speed: search O(n)
+           build  O(n)
+           sort   /
+           
+  - Graph
+    - Deep First Search
+      go as much as possible into depth
+      store discovered values into a Stack
+      if explored completly: flag
+    - Breath First Search
+      visit all brothers before visits children
+      store discovered values into a Queue
+      if explored completly: flag
+  
+Sorts:
+  - Bubble
+    > while alist > 1
+    > loop through alist and compare 2 by 2 terms and switch in needed
+    > alist = alist[:-1]
+  - Selection
+    > while alist > 1
+    > loop through alist and compare each term to max terms and reset max
+    > alist = alist[:-1]
+  - Insertion
+    look on internet
+  - Shell
+  - Merge
+    takes 2 ordered lists (left, right) and sort term by term
+    def mergeSort(alist): > divide into left and right 
+                          > recursion, sort left and right: mergeSort(left) and mergeSort(right)
+                          > sort 
+    Speed: search /
+           build  O(n)
+           sort   O(nlog(n))
+  - Quick
+    left and right mark
+    def quickSort(alist): > getPivot() > quickSort(:pivot) and quickSort(pivot+1:)
+    Speed: search /
+           build  O(n)
+           sort   O(nlog(n))
